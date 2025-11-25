@@ -74,6 +74,7 @@ brew install http-server    # Simple static HTTP server https://github.com/http-
 brew install localtunnel    # Expose localhost to the web https://theboroer.github.io/localtunnel-www/
 brew install prettier       # Code formatter https://prettier.io/
 brew install wrangler       # Cloudflare Workers CLI https://developers.cloudflare.com/workers/wrangler/
+brew install mackup         # Backup and keep your application settings in sync https://github.com/lra/mackup
 
 # Install Applications via Homebrew Cask
 brew install --cask bettertouchtool     # Advanced window management and customization tool https://folivora.ai/
@@ -111,3 +112,6 @@ brew install --cask paragon-ntfs        # Microsoft NTFS for Mac by Paragon Soft
 brew install --cask disk-drill          # Data recovery software https://www.cleverfiles.com/
 
 brew cleanup
+
+# Restore application settings using Mackup
+mackup restore
