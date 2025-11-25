@@ -41,8 +41,12 @@ defaults write com.apple.universalaccess reduceTransparency -bool true
 #defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
 
 # Always show scrollbars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# Scrollbar behavior
+# 0 = jump to spot clicked, 1 = jump one page
+defaults write NSGlobalDomain AppleScrollerPaging -int 0
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -79,12 +83,11 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-# TODO: setup wallpaper!
 # Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
 # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
-#rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-#sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-#sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
+rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
+sudo ln -s ~/Pictures/wallpaper.JPG /System/Library/CoreServices/DefaultDesktop.jpg
 
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -111,6 +114,9 @@ sudo systemsetup -settimezone "Europe/Bratislava" > /dev/null
 
 # Stop iTunes from responding to the keyboard media keys
 launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+
+# Turn off shake mouse cursor to locate
+defaults write ~/Library/Preferences/.GlobalPreferences.plist CGDisableCursorLocationMagnification -bool true
 
 ###############################################################################
 # Energy saving                                                               #
@@ -413,6 +419,18 @@ defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool 
 defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
 defaults write com.brave.Browser AppleEnableMouseSwipeNavigateWithScrolls -bool false
 
+###############################################################################
+# Other                                                                     #
+###############################################################################
+
+# Enable firewall
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+
+# Disable Airdrop
+defaults write com.apple.sharingd DiscoverableMode -string "None"
+
+# Disable Siri requests
+defaults write com.apple.assistant.support "Assistant Enabled" -bool false
 
 ###############################################################################
 # Kill affected applications                                                  #
@@ -427,6 +445,7 @@ for app in "cfprefsd" \
 	"Messages" \
 	"Photos" \
 	"SystemUIServer" \
+	"sharingd" \
 	"Terminal"; do
 	killall "${app}" &> /dev/null
 done
