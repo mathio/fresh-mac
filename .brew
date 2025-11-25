@@ -1,0 +1,113 @@
+#!/bin/bash
+
+# Xcode Command Line Tools
+if ! xcode-select -p &> /dev/null; then
+    print_info "Installing Xcode Command Line Tools..."
+    xcode-select --install
+else
+    print_info "Xcode Command Line Tools already installed"
+fi
+
+# Install Homebrew (if not already installed)
+if ! command -v brew &> /dev/null; then
+    print_info "Homebrew not found. Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    
+    # Add Homebrew to PATH for Apple Silicon Macs
+    if [[ $(uname -m) == 'arm64' ]]; then
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.profile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi  
+fi
+
+# Use the latest Homebrew.
+brew update
+
+# Upgrade any already-installed formulae.
+brew upgrade
+
+# Save Homebrew’s installed location.
+BREW_PREFIX=$(brew --prefix)
+
+# Install GNU core utilities (those that come with macOS are outdated).
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+brew install coreutils
+ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
+
+# Install a modern version of Bash.
+brew install bash
+brew install bash-completion2
+
+# Switch to using brew-installed bash as default shell
+if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
+  echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells;
+  chsh -s "${BREW_PREFIX}/bin/bash";
+fi;
+
+# Install tools
+brew install vim --with-override-system-vi # Modern Vim https://www.vim.org/
+brew install grep           # GNU grep https://www.gnu.org/software/grep/
+brew install openssh        # OpenSSH https://www.openssh.prg/
+brew install screen         # Terminal multiplexer https://www.gnu.org/software/screen/
+brew install act            # Run GitHub Actions locally https://github.com/nektos/act
+brew install gh             # GitHub CLI https://cli.github.com/
+brew install heroku         # brew/heroku,Heroku CLI https://cli.heroku.com/
+brew install ruby           # Ruby programming language https://www.ruby-lang.org/
+brew install awscli         # AWS command line interface https://aws.amazon.com/cli/
+brew install sqlite         # SQL database engine https://sqlite.org/
+brew install curl           # Command line HTTP client https://curl.se/
+brew install wget           # File download utility https://www.gnu.org/software/wget/
+brew install php            # PHP programming language https://www.php.net/
+brew install composer       # PHP dependency manager https://getcomposer.org/
+brew install node           # Node.js JavaScript runtime https://nodejs.org/
+brew install n              # Node version manager https://github.com/tj/n
+brew install yarn           # JavaScript package manager https://yarnpkg.com/
+brew install pnpm           # Fast JavaScript package manager https://pnpm.io/
+brew install htop           # Interactive process viewer https://htop.dev/
+brew install bat            # Cat clone with syntax highlighting https://github.com/sharkdp/bat
+brew install ffmpeg         # Multimedia framework https://www.ffmpeg.org/
+brew install entr           # Run commands when files change https://eradman.com/entrproject/
+brew install tree           # Directory tree listing https://oldmanprogrammer.net/source.php?dir=projects/tree
+brew install jq             # JSON processor https://jqlang.org/
+brew install libpq          # PostgreSQL libraries https://www.postgresql.org/
+brew install http-server    # Simple static HTTP server https://github.com/http-party/http-server
+brew install localtunnel    # Expose localhost to the web https://theboroer.github.io/localtunnel-www/
+brew install prettier       # Code formatter https://prettier.io/
+brew install wrangler       # Cloudflare Workers CLI https://developers.cloudflare.com/workers/wrangler/
+
+# Install Applications via Homebrew Cask
+brew install --cask bettertouchtool     # Advanced window management and customization tool https://folivora.ai/
+brew install --cask brave-browser       # Privacy-focused web browser https://brave.com/
+brew install --cask cap                 # Open source screen recording tool https://cap.so/
+brew install --cask chromium            # Open-source web browser https://www.chromium.org/
+brew install --cask cyberduck           # FTP and cloud storage browser https://cyberduck.io/
+brew install --cask disk-inventory-x    # Disk usage visualization tool https://www.derlien.com/
+brew install --cask docker              # Container platform https://www.docker.com/products/docker-desktop/
+brew install --cask dropbox             # Cloud storage and file sync https://www.dropbox.com/
+brew install --cask firefox             # Mozilla web browser https://www.firefox.com/
+brew install --cask google-chrome       # Google web browser https://www.google.com/chrome/
+brew install --cask datagrip            # JetBrains database IDE https://www.jetbrains.com/datagrip/
+brew install --cask phpstorm            # JetBrains PHP IDE https://www.jetbrains.com/phpstorm/
+brew install --cask rubymine            # JetBrains Ruby IDE https://www.jetbrains.com/ruby/
+brew install --cask webstorm            # JetBrains JavaScript IDE https://www.jetbrains.com/webstorm/
+brew install --cask keka                # File archiver https://www.keka.io/
+brew install --cask rectangle           # Window management tool https://rectangleapp.com/
+brew install --cask slack               # Team communication platform https://slack.com/
+brew install --cask spotify             # Music streaming service https://www.spotify.com/
+brew install --cask stats               # System monitor for menu bar https://mac-stats.com/
+brew install --cask sublime-merge       # Git client https://www.sublimemerge.com/
+brew install --cask sublime-text        # Text editor https://www.sublimetext.com/
+brew install --cask teamviewer          # Remote desktop software https://www.teamviewer.com/
+brew install --cask transmission        # BitTorrent client https://transmissionbt.com/
+brew install --cask visual-studio-code  # Code editor https://code.visualstudio.com/
+brew install --cask vlc                 # Media player https://www.videolan.org/vlc/
+brew install --cask hoppscotch          # API development tool https://hoppscotch.com/
+brew install --cask mkvtoolnix          # MKV video tools https://mkvtoolnix.download/
+brew install --cask notion-calendar     # Calendar app from Notion https://www.notion.com/product/calendar
+brew install --cask pearcleaner         # App uninstaller https://github.com/alienator88/Pearcleaner
+brew install --cask tabletool           # CSV editor https://tabletool.io/
+brew install --cask flixtools           # Subtitle download tool https://www.flixtools.com/
+brew install --cask paragon-ntfs        # Microsoft NTFS for Mac by Paragon Software https://www.paragon-software.com/home/ntfs-mac/
+brew install --cask disk-drill          # Data recovery software https://www.cleverfiles.com/
+
+brew cleanup
