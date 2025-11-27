@@ -1,3 +1,6 @@
+# Locale
+export LC_CTYPE=en_US.UTF-8;
+
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 

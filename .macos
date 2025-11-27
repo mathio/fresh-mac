@@ -3,6 +3,13 @@
 # macOS Configuration Functions for Fresh Mac Setup
 # This file contains all macOS configuration logic
 
+echo "Please enter your password to proceed:";
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # Close any open System Preferences panes, to prevent them from overriding settings we're about to change
 osascript -e 'tell application "System Preferences" to quit'
 
@@ -36,6 +43,9 @@ sudo nvram SystemAudioVolume=" "
 
 # Disable transparency in the menu bar and elsewhere
 defaults write com.apple.universalaccess reduceTransparency -bool true
+
+# Set light appearance mode
+osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
 
 # Set highlight color to green
 #defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
@@ -335,7 +345,7 @@ tell application "Terminal"
 	local allOpenedWindows
 	local initialOpenedWindows
 	local windowID
-	set themeName to "Pro"
+	set themeName to "pro-custom"
 
 	(* Store the IDs of all the open terminal windows. *)
 	set initialOpenedWindows to id of every window
@@ -343,7 +353,7 @@ tell application "Terminal"
 	(* Open the custom theme so that it gets added to the list
 	   of available terminal themes (note: this will open two
 	   additional terminal windows). *)
-	do shell script "open '$HOME/init/" & themeName & ".terminal'"
+	do shell script "open './.init/" & themeName & ".terminal'"
 
 	(* Wait a little bit to ensure that the custom theme is added. *)
 	delay 1
