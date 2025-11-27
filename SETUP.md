@@ -33,8 +33,6 @@
 
 4. Additional settings in _System Preferences_:
 
-   - General
-     - Login items & Extensions -> Add `~/.login.workflow`
    - Accessibility
      - Display
        - Reduce transparency
