@@ -83,33 +83,35 @@ brew install --cask cap                 # Open source screen recording tool http
 brew install --cask chromium            # Open-source web browser https://www.chromium.org/
 brew install --cask cyberduck           # FTP and cloud storage browser https://cyberduck.io/
 brew install --cask disk-inventory-x    # Disk usage visualization tool https://www.derlien.com/
+brew install --cask disk-drill          # Data recovery software https://www.cleverfiles.com/
 brew install --cask docker              # Container platform https://www.docker.com/products/docker-desktop/
 brew install --cask dropbox             # Cloud storage and file sync https://www.dropbox.com/
 brew install --cask firefox             # Mozilla web browser https://www.firefox.com/
 brew install --cask google-chrome       # Google web browser https://www.google.com/chrome/
+brew install --cask hoppscotch          # API development tool https://hoppscotch.com/
 brew install --cask datagrip            # JetBrains database IDE https://www.jetbrains.com/datagrip/
 brew install --cask phpstorm            # JetBrains PHP IDE https://www.jetbrains.com/phpstorm/
 brew install --cask rubymine            # JetBrains Ruby IDE https://www.jetbrains.com/ruby/
 brew install --cask webstorm            # JetBrains JavaScript IDE https://www.jetbrains.com/webstorm/
 brew install --cask keka                # File archiver https://www.keka.io/
+brew install --cask notion-calendar     # Calendar app from Notion https://www.notion.com/product/calendar
+brew install --cask paragon-ntfs        # Microsoft NTFS for Mac by Paragon Software https://www.paragon-software.com/home/ntfs-mac/
+brew install --cask pearcleaner         # App uninstaller https://github.com/alienator88/Pearcleaner
 brew install --cask rectangle           # Window management tool https://rectangleapp.com/
 brew install --cask slack               # Team communication platform https://slack.com/
 brew install --cask spotify             # Music streaming service https://www.spotify.com/
 brew install --cask stats               # System monitor for menu bar https://mac-stats.com/
 brew install --cask sublime-merge       # Git client https://www.sublimemerge.com/
 brew install --cask sublime-text        # Text editor https://www.sublimetext.com/
+brew install --cask tabletool           # CSV editor https://tabletool.io/
 brew install --cask teamviewer          # Remote desktop software https://www.teamviewer.com/
-brew install --cask transmission        # BitTorrent client https://transmissionbt.com/
 brew install --cask visual-studio-code  # Code editor https://code.visualstudio.com/
 brew install --cask vlc                 # Media player https://www.videolan.org/vlc/
-brew install --cask hoppscotch          # API development tool https://hoppscotch.com/
-brew install --cask mkvtoolnix          # MKV video tools https://mkvtoolnix.download/
-brew install --cask notion-calendar     # Calendar app from Notion https://www.notion.com/product/calendar
-brew install --cask pearcleaner         # App uninstaller https://github.com/alienator88/Pearcleaner
-brew install --cask tabletool           # CSV editor https://tabletool.io/
-brew install --cask flixtools           # Subtitle download tool https://www.flixtools.com/
-brew install --cask paragon-ntfs        # Microsoft NTFS for Mac by Paragon Software https://www.paragon-software.com/home/ntfs-mac/
-brew install --cask disk-drill          # Data recovery software https://www.cleverfiles.com/
+
+# Optional Apps
+# brew install --cask transmission        # BitTorrent client https://transmissionbt.com/
+# brew install --cask flixtools           # Subtitle download tool https://www.flixtools.com/
+# brew install --cask mkvtoolnix          # MKV video tools https://mkvtoolnix.download/
 
 brew cleanup
 

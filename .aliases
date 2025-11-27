@@ -3,6 +3,7 @@ alias smerge="/Applications/Sublime\ Merge.app/Contents/SharedSupport/bin/smerge
 #alias git-amend="git add . && git commit --amend --no-edit --no-verify && git push origin --force --no-verify"
 alias g=git
 alias pp=pnpm
+alias y=yarn
 alias human-id='pnpm --g human-id -- lowercase -'
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
@@ -43,7 +44,7 @@ alias cleanup-dsstore="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
-# Finally, clear download history from quarantine. https://mths.be/bum
+# Finally, clear download history from quarantine.
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
 # Toggle hidden files in Finder

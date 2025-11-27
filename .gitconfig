@@ -1,95 +1,95 @@
 [alias]
 
-	# View abbreviated SHA, description, and history graph of the latest 20 commits.
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  # View abbreviated SHA, description, and history graph of the latest 20 commits.
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
-	# View the current working tree status using the short format.
-	s = status -s
+  # View the current working tree status using the short format.
+  s = status -s
 
-	# Show the diff between the latest commit and the current state.
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+  # Show the diff between the latest commit and the current state.
+  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
   # Pull in remote changes for the current repository and all its submodules.
-	p = pull --recurse-submodules
+  p = pull --recurse-submodules
 
   # Clone a repository including all submodules.
-	c = clone --recursive
+  c = clone --recursive
 
   # Commit all changes.
-	ca = git add . && git commit
+  ca = git add . && git commit
 
   # Switch to a branch, creating it if necessary.
-	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
   # Show verbose output about tags, branches or remotes
-	tags = tag -l
-	branches = branch --all
-	remotes = remote --verbose
+  tags = tag -l
+  branches = branch --all
+  remotes = remote --verbose
 
   # List aliases.
-	aliases = config --get-regexp alias
+  aliases = config --get-regexp alias
 
   # Add all files, ammend last commit without changing the commit message, and force push.
-	amg = git add . && git commit --amend --no-edit --no-verify && git push origin --force-with-lease --no-verify
+  amg = git add . && git commit --amend --no-edit --no-verify && git push origin --force-with-lease --no-verify
 
   # List contributors with number of commits.
-	contributors = shortlog --summary --numbered
+  contributors = shortlog --summary --numbered
 
-	# Show the user email for the current repository.
-	whoami = config user.email
+  # Show the user email for the current repository.
+  whoami = config user.email
 
 [branch]
 
-	# Show most recently changed branches first.
-	sort = -committerdate
+  # Show most recently changed branches first.
+  sort = -committerdate
 
 [core]
 
-	# Use global `.gitattributes`.
-	excludesfile = ~/.gitignore
+  # Use global `.gitattributes`.
+  excludesfile = ~/.gitignore
 
 [color]
 
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = auto
+  # Use colors in Git commands that are capable of colored output when
+  # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+  ui = auto
 
 [color "branch"]
 
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
 
-	meta = yellow bold
-	frag = magenta bold # line info
-	old = red # deletions
-	new = green # additions
+  meta = yellow bold
+  frag = magenta bold # line info
+  old = red # deletions
+  new = green # additions
 
 [color "status"]
 
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 
 [diff]
 
-	# Detect copies as well as renames.
-	renames = copies
+  # Detect copies as well as renames.
+  renames = copies
 
 [diff "bin"]
 
-	# Use `hexdump` to diff binary files.
-	textconv = hexdump -v -C
+  # Use `hexdump` to diff binary files.
+  textconv = hexdump -v -C
 
 [push]
 
-	# https://git-scm.com/docs/git-config#git-config-pushdefault
-	default = simple
-	# Make `git push` push relevant annotated tags when pushing branches out.
-	followTags = true
+  # https://git-scm.com/docs/git-config#git-config-pushdefault
+  default = simple
+  # Make `git push` push relevant annotated tags when pushing branches out.
+  followTags = true
 
 [init]
 
-	defaultBranch = main
+  defaultBranch = main
