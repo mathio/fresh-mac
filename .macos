@@ -329,6 +329,9 @@ defaults write com.apple.dock show-recents -bool false
 # Bottom left screen corner → Start screen saver
 #defaults write com.apple.dock wvous-bl-corner -int 5
 #defaults write com.apple.dock wvous-bl-modifier -int 0
+# Bottom right - Disable screen saver
+defaults write com.apple.dock wvous-br-corner -int 6
+defaults write com.apple.dock wvous-br-modifier -int 0
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
@@ -420,14 +423,9 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ###############################################################################
 
 # Disable the all too sensitive backswipe on trackpads
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
-defaults write com.brave.Browser AppleEnableSwipeNavigateWithScrolls -bool false
-
-# Disable the all too sensitive backswipe on Magic Mouse
-defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
-defaults write com.brave.Browser AppleEnableMouseSwipeNavigateWithScrolls -bool false
+# defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+# defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+# defaults write com.brave.Browser AppleEnableSwipeNavigateWithScrolls -bool false
 
 ###############################################################################
 # Other                                                                     #

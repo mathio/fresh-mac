@@ -30,7 +30,7 @@
   aliases = config --get-regexp alias
 
   # Add all files, ammend last commit without changing the commit message, and force push.
-  amg = git add . && git commit --amend --no-edit --no-verify && git push origin --force-with-lease --no-verify
+  amg = !"git add . && git commit --amend --no-edit --no-verify && git push origin --force-with-lease --no-verify"
 
   # List contributors with number of commits.
   contributors = shortlog --summary --numbered

@@ -23,7 +23,56 @@
      - ✅ Update automatically
 2. [Download this repo](https://github.com/mathio/fresh-mac/archive/refs/heads/main.zip) (there is no git yet)
 3. Open Terminal and run:
+
    ```
    cd ~/Downloads/fresh-mac-main
    ./bootstrap.sh
+   bash ~/.macos
+   bash ~/.brew
    ```
+
+4. Additional settings in _System Preferences_:
+
+   - General
+     - Login items & Extensions -> Add `~/.login.workflow`
+   - Accessibility
+     - Display
+       - Reduce transparency
+       - Mouse pointer: Shake to Locate (off)
+     - Pointer Control
+       - Trackpad options -> Use for dragging (Without Drag Lock)
+   - Control Center
+     - setup menubar items
+   - Desktop & dock
+     - Default web browser (Brave)
+     - Drag windows to tile (disable all)
+     - Mission Control -> Group windows by application (on
+     - Hot Corners -> Bottom right: Disable screen saver
+   - Displays
+     - Auto adjust brightness (off)
+     - Night shift
+       - Schedule: Sunset to Sunrise
+       - Color temperature: Less Warm
+   - Wallpaper
+     - Customize
+   - Sound
+     - Play sound on startup (off)
+   - Lock Screen
+     - Start Screen Saver: Never
+     - Turn display off on battery (and power adapter) when inactive: 10 minutes
+     - Require password: Immediatelly
+   - Touch ID & Password
+     - Add multiple fingerprints
+   - Keyboard
+     - Keyboard Shortcuts -> Modifier Keys: Caps Lock = Command
+
+5. _Finder_
+   - Favorites:
+     - m (`~`)
+     - Desktop
+     - Dropbox
+     - Recents
+     - Applications
+     - AirDrop
+     - Downloads
+     - work (`~/work`)
