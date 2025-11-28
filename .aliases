@@ -62,41 +62,41 @@ function forever() { while true; do "$@"; echo "Exited, restarting..."; sleep 1;
 function mkd() { mkdir -p "$@" && cd "$_"; }
 
 function targz() {
-	local tmpFile="${@%/}.tar";
-	tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
+  local tmpFile="${@%/}.tar";
+  tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
 
-	size=$(stat -f"%z" "${tmpFile}" 2> /dev/null;);
+  size=$(stat -f"%z" "${tmpFile}" 2> /dev/null;);
 
-	echo "Compressing .tar ($((size / 1000)) kB) using \`gzip\`…";
-	gzip -v "${tmpFile}" || return 1;
-	[ -f "${tmpFile}" ] && rm "${tmpFile}";
+  echo "Compressing .tar ($((size / 1000)) kB) using \`gzip\`…";
+  gzip -v "${tmpFile}" || return 1;
+  [ -f "${tmpFile}" ] && rm "${tmpFile}";
 
-	zippedSize=$(stat -f"%z" "${tmpFile}.gz" 2> /dev/null;);
+  zippedSize=$(stat -f"%z" "${tmpFile}.gz" 2> /dev/null;);
 
-	echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
+  echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
 }
 
 function filesize() {
-	if du -b /dev/null > /dev/null 2>&1; then
-		local arg=-sbh;
-	else
-		local arg=-sh;
-	fi
-	if [[ -n "$@" ]]; then
-		du $arg -- "$@";
-	else
-		du $arg .[^.]* ./*;
-	fi;
+  if du -b /dev/null > /dev/null 2>&1; then
+    local arg=-sbh;
+  else
+    local arg=-sh;
+  fi
+  if [[ -n "$@" ]]; then
+    du $arg -- "$@";
+  else
+    du $arg .[^.]* ./*;
+  fi;
 }
 
 # Use Git’s colored diff when available
 hash git &>/dev/null;
 if [ $? -eq 0 ]; then
-	function diff() {
-		git diff --no-index --color-words "$@";
-	}
+  function diff() {
+    git diff --no-index --color-words "$@";
+  }
 fi;
 
 function tre() {
-	tree -aC -I '.git|node_modules' --dirsfirst "$@" | less -FRNX;
+  tree -aC -I '.git|node_modules' --dirsfirst "$@" | less -FRNX;
 }

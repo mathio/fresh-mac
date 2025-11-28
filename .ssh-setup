@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Check if SSH keys exist
+if [ ! -f ~/.ssh/id_rsa ] || [ ! -f ~/.ssh/id_rsa.pub ]; then
+  echo "Error: SSH keys not found at ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub"
+  echo "Generate SSH keys first:"
+  echo "  Legacy: ssh-keygen -t rsa -b 4096 -C \"your_email@example.com\""
+  echo "  Or: ssh-keygen -t ed25519 -C \"your_email@example.com\""
+  exit 1
+fi
+
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_rsa

@@ -34,18 +34,11 @@
 4. Additional settings in _System Preferences_:
 
    - Accessibility
-     - Display
-       - Reduce transparency
-       - Mouse pointer: Shake to Locate (off)
-     - Pointer Control
-       - Trackpad options -> Use for dragging (Without Drag Lock)
    - Control Center
      - setup menubar items
    - Desktop & dock
      - Default web browser (Brave)
-     - Drag windows to tile (disable all)
-     - Mission Control -> Group windows by application (on
-     - Hot Corners -> Bottom right: Disable screen saver
+     - Drag windows to tile (automated)
    - Displays
      - Auto adjust brightness (off)
      - Night shift
@@ -53,18 +46,13 @@
        - Color temperature: Less Warm
    - Wallpaper
      - Customize
-   - Sound
-     - Play sound on startup (off)
-   - Lock Screen
-     - Start Screen Saver: Never
-     - Turn display off on battery (and power adapter) when inactive: 10 minutes
-     - Require password: Immediatelly
    - Touch ID & Password
      - Add multiple fingerprints
    - Keyboard
      - Keyboard Shortcuts -> Modifier Keys: Caps Lock = Command
 
-5. _Finder_
+5. _Finder_ setup
+
    - Favorites:
      - m (`~`)
      - Desktop
