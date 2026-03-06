@@ -43,7 +43,7 @@ ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
 # Install a modern version of Bash.
 brew install bash
-brew install bash-completion2
+brew install bash-completion@2
 
 # Switch to using brew-installed bash as default shell
 if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
@@ -82,6 +82,14 @@ brew install localtunnel    # Expose localhost to the web https://theboroer.gith
 brew install prettier       # Code formatter https://prettier.io/
 brew install wrangler       # Cloudflare Workers CLI https://developers.cloudflare.com/workers/wrangler/
 brew install mackup         # Backup and keep your application settings in sync https://github.com/lra/mackup
+brew install imagemagick    # Image processing tools https://imagemagick.org/
+brew install pipx           # Install and run Python CLI tools in isolation https://pipx.pypa.io/
+brew install rbenv          # Ruby version manager https://github.com/rbenv/rbenv
+brew install gnupg          # GNU Privacy Guard encryption https://gnupg.org/
+brew install cloudflared    # Cloudflare Tunnel client https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/
+brew install yt-dlp         # Video downloader https://github.com/yt-dlp/yt-dlp
+brew install postgresql@14  # PostgreSQL database https://www.postgresql.org/
+brew install redis          # In-memory data store https://redis.io/
 
 # Install Applications via Homebrew Cask
 brew install --cask bettertouchtool     # Advanced window management and customization tool https://folivora.ai/
@@ -91,7 +99,7 @@ brew install --cask chromium            # Open-source web browser https://www.ch
 brew install --cask cyberduck           # FTP and cloud storage browser https://cyberduck.io/
 brew install --cask disk-inventory-x    # Disk usage visualization tool https://www.derlien.com/
 brew install --cask disk-drill          # Data recovery software https://www.cleverfiles.com/
-brew install --cask docker              # Container platform https://www.docker.com/products/docker-desktop/
+brew install --cask docker-desktop      # Container platform https://www.docker.com/products/docker-desktop/
 brew install --cask dropbox             # Cloud storage and file sync https://www.dropbox.com/
 brew install --cask firefox             # Mozilla web browser https://www.firefox.com/
 brew install --cask google-chrome       # Google web browser https://www.google.com/chrome/
@@ -110,10 +118,11 @@ brew install --cask spotify             # Music streaming service https://www.sp
 brew install --cask stats               # System monitor for menu bar https://mac-stats.com/
 brew install --cask sublime-merge       # Git client https://www.sublimemerge.com/
 brew install --cask sublime-text        # Text editor https://www.sublimetext.com/
-brew install --cask tabletool           # CSV editor https://tabletool.io/
 brew install --cask teamviewer          # Remote desktop software https://www.teamviewer.com/
 brew install --cask visual-studio-code  # Code editor https://code.visualstudio.com/
 brew install --cask vlc                 # Media player https://www.videolan.org/vlc/
+brew install --cask iterm2             # Terminal emulator https://iterm2.com/
+brew install --cask agent-browser      # AI browser agent https://github.com/nicepkg/agent-browser
 
 # Optional Apps
 # brew install --cask transmission        # BitTorrent client https://transmissionbt.com/

@@ -11,12 +11,12 @@ export PATH="$HOME/bin:$PATH";
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
 }
-# Fancy prompt: user@host (magenta) working_dir (green) git_branch (red) $(magenta)
+# Fancy prompt: user@host (red) working_dir (green) git_branch (cyan) $(red)
 # Color: https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
-#export PS1="\[\e[95m\]\u@\h \[\e[92m\]\W \[\e[91m\]\$(parse_git_branch)\[\e[95m\]$\[\e[00m\] "
+export PS1="\[\e[91m\]\u@\h \[\e[92m\]\W \[\e[96m\]\$(parse_git_branch)\[\e[91m\]$\[\e[00m\] "
 
-# Fancy prompt (magenta): user@host working_dir git_branch $
-export PS1="\[\e[95m\]\u@\h \W \$(parse_git_branch)\[\e[95m\]$\[\e[00m\] "
+# Fancy prompt (cyan): user@host working_dir git_branch $
+#export PS1="\[\e[96m\]\u@\h \W \$(parse_git_branch)$\[\e[00m\] "
 
 source ~/.aliases
 

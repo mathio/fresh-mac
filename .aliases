@@ -97,6 +97,13 @@ if [ $? -eq 0 ]; then
   }
 fi;
 
+function tab() {
+    echo -ne "\033]0;$*\007"
+}
+
 function tre() {
   tree -aC -I '.git|node_modules' --dirsfirst "$@" | less -FRNX;
 }
+
+# claude
+alias c='claude --allow-dangerously-skip-permissions'
